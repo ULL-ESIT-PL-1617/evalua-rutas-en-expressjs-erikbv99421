@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-app.get('/user/:id', function (req, res, next) {
-  console.log('ID:', req.params.id, req.baseUrl);
+/* GET users listing. */
+router.get('/:id', function (req, res, next) {
+  console.log('usando middleware');
   next();
 }, function (req, res, next) {
-  console.log('hola' + req.baseUrl);
-  res.render('index.ejs', {user_id: req.params.id});
-  //res.send('User ID ' + req.params.id);
+  console.log('hola' + req.hostname);
+  res.render('users', {user_id: req.params.id});
 });
 
-module.exports = user;
+module.exports = router;
