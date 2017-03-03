@@ -25,15 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
-// Punto 3
 app.get('/user/:id', function (req, res, next) {
   console.log('ID:', req.params.id);
   next();
 }, function (req, res, next) {
+  res.render('index.ejs', {user_id: req.params.id});
   //res.send('User ID ' + req.params.id);
-  res.render('User', {name: req.params.id}, function(err, html){
-    res.render('index');
-  });
 });
 
 // catch 404 and forward to error handler

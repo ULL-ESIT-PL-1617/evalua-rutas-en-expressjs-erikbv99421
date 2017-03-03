@@ -5,7 +5,9 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <p>User <%= user %></p>
+    <% if (user_id) { %>
+        <h2>User <%= user_id %></h2>
+    <% } %>
     <img src="/images/img1.jpeg" alt="mountain" height="42" width="42">
   </body>
 </html>
